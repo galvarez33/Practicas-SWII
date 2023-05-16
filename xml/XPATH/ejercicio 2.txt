@@ -1,0 +1,15 @@
+1. para poder obtener informacion de una web primero hacemos click derecho en inspeccionar  
+   en este caso yo he elegido "https://www.nike.com/es/hombre"
+
+2. En el "inspector" podemos obtener el codigo html de la web"
+   encontramos que los precios se encuentran en la etiqueta "span" con clase "nds-text price css..."
+
+3. Ejecutamos lo siguiente en la consola, le pedimos que nos muestre todos los elementos span cuyo atributo "class"
+   contenga la palabra "price" y nos devuelva el valo con "text()"
+
+        $x("//span[contains(@class,'price')]/text()")
+
+4. De igual manera si queremos acceder al nombre de todos los articulos haremos los mismo pero con su correspondiente "class"
+   En este caso todos contiene la combinacion "jXk" por lo que hacemos una petición a ese segmento
+
+        $x("//h4[contains(@class,'jXk')]/text()")

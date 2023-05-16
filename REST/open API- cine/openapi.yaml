@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  title: API de Cine
+  version: 1.0.0
+paths:
+  /api/v1/peliculas:
+    get:
+      summary: Mostrar la cartelera
+      responses:
+        '200':
+          description: "Array con las películas:"
+          content:
+            application/json:
+              example: 
+                [
+                  {
+                    "id": 1,
+                    "titulo": "Avatar: The Way of Water",
+                    "directores": ["James Cameron"],
+                    "actores": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
+                    "duracion": 192,
+                    "edad_min": 13,
+                    "resumen": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
+                    "genero": ["action", "adventure", "fantasy"],
+                    "url_sesiones": "http://example.com/api/v1/peliculas/1/sesiones"
+                  }
+                ]
+    /api/v1/peliculas/{id}:
+      get:
+        summary: Mostrar la película $id
+        parameters:
+          - in: path
+            name: id
+            description: ID de la película
+            required: true
+            schema:
+              type: integer
+        responses:
+          '200':
+            description: Información de la película
+            content:
+              application/json:
+                example: 
+                  {
+                    "id": 1,
+                    "titulo": "Avatar: The Way of Water",
+                    "directores": ["James Cameron"],
+                    "actores": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
+                    "duracion": 192,
+                    "edad_min": 13,
+                    "resumen": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
+                    "genero": ["action", "adventure", "fantasy"],
+                    "url_sesiones": "http://example.com/api/v1/peliculas/1/sesiones"
+                  }
+          '404':
+            description: La película $id no existe
+            content:
+              application/json:
+                example: 
+                  {
+                    "error": "Id erroneo",
+                    "mensaje": "No existe la película $id"
+                  }
+      

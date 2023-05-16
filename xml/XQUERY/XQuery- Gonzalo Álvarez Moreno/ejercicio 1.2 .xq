@@ -1,0 +1,1 @@
+count(doc("ejercicio1.xml")/bib/book[author = 'Abiteboul'])

@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: Esquema de API de Películas
+  version: 1.0.0
+paths:
+  /peliculas:
+    get:
+      summary: Mostrar la cartelera
+      responses:
+        '200':
+          description: Array con las películas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    titulo:
+                      type: string
+                    directores:
+                      type: array
+                      items:
+                        type: string
+                    actores:
+                      type: array
+                      items:
+                        type: string
+                    duracion:
+                      type: integer
+                    edad_min:
+                      type: integer
+                    resumen:
+                      type: string
+                    genero:
+                      type: array
+                      items:
+                        type: string
+                    url_sesiones:
+                      type: string
+                      format: url
+        '404':
+          description: La película $id no existe
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  mensaje:
+                    type: string
+    post:
+      summary: Crear una nueva película
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                titulo:
+                  type: string
+                directores:
+                  type: array
+                  items:
+                    type: string
+                actores:
+                  type: array
+                  items:
+                    type: string
+                duracion:
+                  type: integer
+                edad_min:
+                  type: integer
+                resumen:
+                  type: string
+                genero:
+                  type: array
+                  items:
+                    type: string
+                url_sesiones:
+                  type: string
+                  format: url
+              required:
+                - id
+                - titulo
+                - directores
+                - actores
+                - duracion
+                - edad_min
+                - resumen
+                - genero
+                - url_sesiones
+      responses:
+        '201':
+          description: $id de la película creada
+        '400':
+          description: Parámetros de la película erroneos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  mensaje:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    put:
+      summary: Actualizar información de la película
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Identificador de la película
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                duracion:
+                  type: integer
+              required:
+                - duracion
+      responses:
+        '200':
+          description: Película modificada con éxito
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  duracion:
+                    type: integer
+        '400':
+          description: Parámetros de la película erroneos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  mensaje:
+                    type: string
+        '

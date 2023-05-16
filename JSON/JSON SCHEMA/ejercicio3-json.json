@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Interestelar",
+  "type": "object",
+  "properties": {
+    "titulo": {
+      "type": "string"
+    },
+    "año": {
+      "type": "integer"
+    },
+    "director": {
+      "type": "string"
+    },
+    "reparto": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "genero": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trama": {
+      "type": "string"
+    },
+    "valoraciones": {
+      "type": "object",
+      "properties": {
+        "imdb": {
+          "type": "number"
+        },
+        "rotten_tomatoes": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "required": ["titulo", "año", "director", "reparto", "genero", "trama", "valoraciones"]
+}

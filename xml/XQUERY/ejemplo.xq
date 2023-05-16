@@ -1,0 +1,1 @@
+doc("ejemplo.xml")//title

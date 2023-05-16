@@ -1,0 +1,18 @@
+Extraer nombre de los proyectos:
+    //project/data(@name)
+
+Solo las URL de todos los proyectos en español
+    //project/editions/edition[@language='Spanish']/text()
+    //project/editions/data(edition[@language='Spanish'])
+
+Todas las ediciones de todos los proyectos
+    //projects/project/editions/* 
+    //edition
+     //project/editions/edition[@language='Spanish']/text()
+
+Sólo las URL de todas las Wikipedias
+    //projects/project/editions/edition[contains(text(),"wikipedia")]
+    //projects/project[@name="wikipedia"]/editions/edition
+
+La cuarta edición del Wiktionary
+    //projects/project/editions/edition[4][contains(text(),"wiktionary")]

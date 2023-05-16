@@ -1,0 +1,14 @@
+
+{
+    "name": "La Mona Lisa",
+    "artist": "Leonardo da Vinci",
+    "dimension": {
+        "width": 70.3,
+        "height": 80.1
+    },
+    "description": "Pintura al óleo",
+    "tags": [
+        "oil",
+        "famous"
+    ]
+}
